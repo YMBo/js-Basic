@@ -27,9 +27,79 @@ src 的内容，是页面必不可少的一部分，是引入。href 的内容�
    
 1. 生成[x,y]范围的随机整数    
 ```javascript
-    <script>
+<script>
 	function d(min,max){
 		return (Math.round(Math.random()*(max-min))+min);
 	}
-	</script>
+</script>
+```	
+2. 已知数组var stringArray = [“This”, “is”, “Baidu”, “Campus”]，Alert出”This is Baidu Campus”	
+```javascript
+<script>
+	function a(o){
+		return o.join(' ')
+	}
+</script>
+```	
+3. 已知有字符串foo=”get-element-by-id”,写一个function将其转化成驼峰表示法”getElementById”	
+```javascript
+<script>
+	function hump(str){
+		var reg=/\-[a-z]/g;
+		var str1=str.match(reg);
+		str1.forEach(function(ele,index,array){
+			str=str.replace(ele,ele.substr(-1,1).toUpperCase());
+		})
+		return str;
+	}
+</script>
+```	
+4. var numberArray = [3,6,2,4,1,5]; 实现倒排，排序。	
+```javascript
+<script>
+	var numberArray = [3,6,2,4,1,5];
+	numberArray.sort(function(value1,value2){return value2-value1})
+</script>
+```	
+5. 怎样添加、移除、移动、复制、创建和查找节点	
+```javascript
+
+```	
+6. 判断一个正整数数是不是质数，注意优化~	
+```javascript
+<script>
+	function isN(num){
+		if(typeof num!=='number' || num<=0){return;}
+			for(var i=2;i<=num/2;i++){
+				if( num%i==0 ){       
+					return false;
+				};
+			}
+		return true;
+	}
+</script>
+	//这个注意i<=num/2这块，这就是优化了，之前我是除到num-1，现在只需要除到一半，因为再往上除不可能除开，新技能get~
+```	
+7. 取得指定数字到0的所有质数，比如给了3，那么质数为1、3	
+```javascript
+<script type="text/javascript">
+	function getZ( num ){
+		var isZ=[];
+		for(var i=1;i<=num;i++){
+			if(isN( i )){
+				isZ.push(i);
+			};
+		}
+		return isZ;
+	}
+	function isN(num){
+	if(typeof num!=='number' || num<=0){return;}
+		for(var i=2;i<=num/2;i++){
+			if( num%i==0 ){       
+				return false;
+			};
+		}
+		return true;
+	}
+</script>
 ```
