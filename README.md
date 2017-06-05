@@ -26,8 +26,8 @@ src 的内容，是页面必不可少的一部分，是引入。href 的内容�
 ## 二、基础代码使用技巧  
    
 1. 生成[x,y]范围的随机整数    
-    `<script>
+    ```	<script>
 	function d(min,max){
 		return (Math.round(Math.random()*(max-min))+min);
 	}
-	</script>`
+	</script>```	
