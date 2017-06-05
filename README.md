@@ -6,5 +6,5 @@
 > 标准盒子模型 width=content；IE盒子模型width=padding+content+border   
 ----------    
 ### 2 ###  
-> *   行内元素：a、b、span、img、input、strong、em、button    
-> *   块级元素：div、ul、li、dl、dt、dd、p、h1-h6
+> * 行内元素：a、b、span、img、input、strong、em、button    
+> * 块级元素：div、ul、li、dl、dt、dd、p、h1-h6
