@@ -116,4 +116,43 @@ src 的内容，是页面必不可少的一部分，是引入。href 的内容�
 	!!stringVar
 </script>
 ```
-
+10.惰性载入函数,不必每次重新进行判断，只需判断一次
+```javascript
+//第一种方式		
+var setEvent=setClick();
+setEvent(document.getElementById('box'));
+function setClick(){
+	if( window.addEventListener ){
+		return setClick=function(ele){
+			ele.addEventListener('click',function(){
+				alert(this)
+			},false)
+		}
+		}else{
+			return setClick=function(ele){
+			ele.onclick=function(ele){
+			alert('方式2')
+		}
+		}
+	}
+}		
+		
+		
+//第二种方式,这种方式在开始加载的时候就会初始化相比上次少了一行代码				
+var setClick=(function (){
+			if( window.addEventListener ){
+				return function(ele){
+					ele.addEventListener('click',function(){
+						alert(this)
+					},false)
+				}
+			}else{
+				return function(ele){
+				ele.onclick=function(ele){
+				alert('方式2')
+			}
+		}
+	}
+})();
+setClick(document.getElementById('box'));
+```
