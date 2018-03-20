@@ -159,7 +159,7 @@ Function.prototype._bind=function(context){
 ```
 
 ### 12. new 一个类的时候，都发生了什么    
-``` javascipt
+``` javascript
 //代码模拟
 /*
 @param func被new的类（构造函数）
@@ -182,7 +182,7 @@ Object._create=function(o){
 }
 ```
 
-### 13.深拷贝
+### 14.深拷贝
 ``` javascript
 function deepCopy(obj){
 	if(typeof obj!=='object'){return obj};
@@ -193,8 +193,8 @@ function deepCopy(obj){
 	return newObj;
 }
 ```
-### 14.手写ajax
-``` javscript
+### 15.手写ajax
+``` javascript
 //GET
 var xhr=new XMLHttpRequest();
 xhr.open('get',url,true);
@@ -223,7 +223,7 @@ xhr.send("name=YMBo&age=200");
 
 ```
 
-### 15.字符串是否符合回文规则
+### 16.字符串是否符合回文规则
 ``` javascript
 let str = 'My age is 0, 0 si ega ym.';
 //方法一
