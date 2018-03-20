@@ -25,98 +25,82 @@ src 的内容，是页面必不可少的一部分，是引入。href 的内容�
 ----------      
 ## 二、基础代码使用技巧  
    
-1. 生成[x,y]范围的随机整数    
+### 1. 生成[x,y]范围的随机整数    
 ```javascript
-<script>
-	function d(min,max){
-		return (Math.round(Math.random()*(max-min))+min);
-	}
-</script>
+function d(min,max){
+	return (Math.round(Math.random()*(max-min))+min);
+}
 ```	
-2. 已知数组var stringArray = [“This”, “is”, “Baidu”, “Campus”]，Alert出”This is Baidu Campus”	
+### 2. 已知数组var stringArray = [“This”, “is”, “Baidu”, “Campus”]，Alert出”This is Baidu Campus”	
 ```javascript
-<script>
-	function a(o){
-		return o.join(' ')
-	}
-</script>
+function a(o){
+	return o.join(' ')
+}
 ```	
-3. 已知有字符串foo=”get-element-by-id”,写一个function将其转化成驼峰表示法”getElementById”	
+### 3. 已知有字符串foo=”get-element-by-id”,写一个function将其转化成驼峰表示法”getElementById”	
 ```javascript
-<script>
-	function hump(str){
-		var reg=/\-[a-z]/g;
-		var str1=str.match(reg);
-		str1.forEach(function(ele,index,array){
-			str=str.replace(ele,ele.substr(-1,1).toUpperCase());
-		})
-		return str;
-	}
-</script>
+function hump(str){
+	var reg=/\-[a-z]/g;
+	var str1=str.match(reg);
+	str1.forEach(function(ele,index,array){
+		str=str.replace(ele,ele.substr(-1,1).toUpperCase());
+	})
+	return str;
+}
 ```	
-4. var numberArray = [3,6,2,4,1,5]; 实现倒排，排序。	
+### 4. var numberArray = [3,6,2,4,1,5]; 实现倒排，排序。	
 ```javascript
-<script>
-	var numberArray = [3,6,2,4,1,5];
-	numberArray.sort(function(value1,value2){return value2-value1})
-</script>
+var numberArray = [3,6,2,4,1,5];
+numberArray.sort(function(value1,value2){return value2-value1})
 ```	
-5. 怎样添加、移除、移动、复制、创建和查找节点	
+### 5. 怎样添加、移除、移动、复制、创建和查找节点	
 ```javascript
 
 ```	
-6. 判断一个正整数数是不是质数，注意优化~	
+### 6. 判断一个正整数数是不是质数，注意优化~	
 ```javascript
-<script>
-	function isN(num){
-		if(typeof num!=='number' || num<=0){return;}
-			for(var i=2;i<=num/2;i++){
-				if( num%i==0 ){       
-					return false;
-				};
-			}
-		return true;
-	}
-</script>
-	//这个注意i<=num/2这块，这就是优化了，之前我是除到num-1，现在只需要除到一半，因为再往上除不可能除开，新技能get~
-```	
-7. 取得指定数字到0的所有质数，比如给了3，那么质数为1、3	
-```javascript
-<script type="text/javascript">
-	function getZ( num ){
-		var isZ=[];
-		for(var i=1;i<=num;i++){
-			if(isN( i )){
-				isZ.push(i);
-			};
-		}
-		return isZ;
-	}
-	function isN(num){
+function isN(num){
 	if(typeof num!=='number' || num<=0){return;}
 		for(var i=2;i<=num/2;i++){
 			if( num%i==0 ){       
 				return false;
 			};
 		}
-		return true;
+	return true;
+}
+//这个注意i<=num/2这块，这就是优化了，之前我是除到num-1，现在只需要除到一半，因为再往上除不可能除开，新技能get~
+```	
+### 7. 取得指定数字到0的所有质数，比如给了3，那么质数为1、3	
+```javascript
+function getZ( num ){
+	var isZ=[];
+	for(var i=1;i<=num;i++){
+		if(isN( i )){
+			isZ.push(i);
+		};
 	}
-</script>
+	return isZ;
+}
+function isN(num){
+if(typeof num!=='number' || num<=0){return;}
+	for(var i=2;i<=num/2;i++){
+		if( num%i==0 ){       
+			return false;
+		};
+	}
+	return true;
+}
 ```	
-8. 单行写一个评级组件
+### 8. 单行写一个评级组件
 ```javascript
-<script type="text/javascript">
-	"★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate); 
-	//用法：rate是一个1-5的值，自定义
-</script>
+"★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate); 
+//用法：rate是一个1-5的值，自定义
 ```	
-9. 检查字符串不为空
+### 9. 检查字符串不为空
 ```javascript
-<script type="text/javascript">
-	!!stringVar
-</script>
+!!stringVar
 ```
-10.惰性载入函数,不必每次重新进行判断，只需判断一次
+### 10.惰性载入函数,不必每次重新进行判断，只需判断一次
 ```javascript
 //第一种方式		
 var setEvent=setClick();
@@ -156,3 +140,24 @@ var setClick=(function (){
 })();
 setClick(document.getElementById('box'));
 ```
+
+### 11. 原生实现bind函数    
+``` javascript
+Function.prototype._bind=function(context){
+	if(typeof this !=='function'){return;}
+	var fn=this;
+	var params=Array.prototype.slice.call(arguments,1);
+	return function(){
+		fn.apply(context,params.concat(Array.prototype.slice.call(arguments)))
+	}
+}
+
+注意点：
+1. 保证函数this指向
+2. 保证函数所有参数都传递到目标参数
+3. 保证函数的返回值
+```
+
+### 12. 事件    
+#### 1. 事件三个阶段
+
