@@ -158,6 +158,86 @@ Function.prototype._bind=function(context){
 3. 保证函数的返回值
 ```
 
-### 12. 事件    
-#### 1. 事件三个阶段
+### 12. new 一个类的时候，都发生了什么    
+``` javascipt
+//代码模拟
+/*
+@param func被new的类（构造函数）
+*/
+function new2(func){
+	//创建一个实例对象o，并将该对象原型（__proto__）指向func（构造函数）的原型对象
+	var o = Object.create(func.prototype);
+	//将o作为构造函数的this执行构造函数
+	var k= func.call(o);
+	// 如果构造函数返回值是引用类型则将实例对象o代替
+	return typeof k==='object' ? k : o;	
+}
+```
+### 13.Object.create兼容实现
+``` javascript
+Object._create=function(o){
+	var Fn=function(){};
+	Fn.prototype=o;
+	return new Fn;
+}
+```
 
+### 13.深拷贝
+``` javascript
+function deepCopy(obj){
+	if(typeof obj!=='object'){return obj};
+	var newObj=obj.constructor.name==='Array'	? [] : {};
+	for(var key in obj){
+		newObj[key]=typeof obj[key] == 'object' ? deepCopy(obj[key]) : obj[key];
+	}
+	return newObj;
+}
+```
+### 14.手写ajax
+``` javscript
+//GET
+var xhr=new XMLHttpRequest();
+xhr.open('get',url,true);
+xhr.onreadystatechange=function(){
+	if(xhr.readyState==4){
+		console.log(xhr.responseText)
+	}
+}
+/*转码，否则会出现解析错误*/
+function addParams(url,name,value){
+	url+=url.indexOf('?') == -1 ? '?':'&';
+	url+=encodeURIComponent(name)+'='+encodeURIComponent(value);
+	return url;
+}
+xhr.send(null)
+
+//POST
+var xhr=new XMLHttpRequest();
+xhr.open('post',url,true);
+xhr.onreadystatechange=function(){
+	if(xhr.readyState==4){
+		console.log(xhr.responseText)
+	}
+}
+xhr.send("name=YMBo&age=200");
+
+```
+
+### 15.字符串是否符合回文规则
+``` javascript
+let str = 'My age is 0, 0 si ega ym.';
+//方法一
+function palindrome(params){
+	params=params.replace(/[\W\s_]/g,'');
+	return params.toLowerCase()===params.split('').reverse().join('').toLowerCase();
+}
+
+//方法二
+function palindrome(params){
+	params=params.replace(/[\W\s_]/g,'').toLowerCase();
+	for(var i=0,j=params.length-1;i<j;i++,j--){
+		if(params[i]!==params[j]){return false}
+	}
+	return true;
+}
+```
