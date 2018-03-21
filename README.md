@@ -104,32 +104,32 @@ document.querySelector("")	//匹配指定 CSS 选择器的第一个元素
 * element.classList 	//item() 、add(添加类名)、remove(删除类名) 、toggle(ele里如果有此类名就不添加，否则添加)、contains(是否含有指定类名)
 *******************
 位置信息
-* element.getBoundingClientRect()    
+** element.getBoundingClientRect() **
 > ![getBoundingClientRect](/img/000.png)
 
-* clientheight，内容的可视区域，不包含border。clientheight=padding+height-横向滚动轴高度。 
+** clientheight ** :内容的可视区域，不包含border。clientheight=padding+height-横向滚动轴高度。 
 > ![client](/img/111.png)
 
-* clientTop:一个元素顶部边框的宽度（以像素表示）。不包括顶部外边距或内边距(就是边框宽)    
+** clientTop **:一个元素顶部边框的宽度（以像素表示）。不包括顶部外边距或内边距(就是边框宽)    
 *************
-* offsetheight：=padding+height+border+横向滚动轴高度    
+** offsetheight **：=padding+height+border+横向滚动轴高度    
 > ![offsetheight](/img/222.png)
-* offsetLeft: HTMLElement.offsetLeft 是一个只读属性，返回当前元素左上角相对于  HTMLElement.offsetParent(指的是position的元素，否则就向上查找) 节点的左边界偏移的像素值。
+** offsetLeft **: HTMLElement.offsetLeft 是一个只读属性，返回当前元素左上角相对于  HTMLElement.offsetParent(指的是position的元素，否则就向上查找) 节点的左边界偏移的像素值。
 
 *********************
-* scrollheight：可滚动高度    
+** scrollheight **：可滚动高度    
 > ![scrollheight](/img/333.png)
-* scrollTop: 代表在有滚动条时，滚动条向下滚动的距离也就是元素顶部被遮住部分的高度。在没有滚动条时scrollTop==0恒成立。单位px，可读可设置    
+** scrollTop **: 代表在有滚动条时，滚动条向下滚动的距离也就是元素顶部被遮住部分的高度。在没有滚动条时scrollTop==0恒成立。单位px，可读可设置    
 > ![scrollTop](/img/444.png)
 
 **********************
-* event
-** clientX		当事件被触发时鼠标指针向对于浏览器页面（或当前窗口）的水平坐标。
-** clientY		同上
-** screenX 	可返回事件发生时鼠标指针相对于屏幕的水平坐标。
-** screenX	同上
+** event  ** 
+	*clientX		当事件被触发时鼠标指针向对于浏览器页面（或当前窗口）的水平坐标。
+	* clientY		同上
+	* screenX 	可返回事件发生时鼠标指针相对于屏幕的水平坐标。
+	* screenX	同上    
 
-### 7. 判断一个正整数数是不是质数，注意优化~	
+### 7. 判断一个正整数数是不是质数，注意优化~	   
 ```javascript
 function isN(num){
 	if(typeof num!=='number' || num<=0){return;}
