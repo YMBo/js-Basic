@@ -103,7 +103,7 @@ document.querySelector("")	//匹配指定 CSS 选择器的第一个元素
 * element.childNodes	//返回元素子节点的 NodeList。注意空格有的浏览器视为 文本节点返回
 * element.classList 	//item() 、add(添加类名)、remove(删除类名) 、toggle(ele里如果有此类名就不添加，否则添加)、contains(是否含有指定类名)
 *******************
-位置信息
+位置信息    
 ** element.getBoundingClientRect() **
 > ![getBoundingClientRect](/img/000.png)
 
@@ -123,7 +123,7 @@ document.querySelector("")	//匹配指定 CSS 选择器的第一个元素
 > ![scrollTop](/img/444.png)
 
 **********************
-** event  ** 
+** event  **    
 	*clientX		当事件被触发时鼠标指针向对于浏览器页面（或当前窗口）的水平坐标。
 	* clientY		同上
 	* screenX 	可返回事件发生时鼠标指针相对于屏幕的水平坐标。
