@@ -366,9 +366,74 @@ function createArray(len, arr = []) {
 }
 
 //方法二
-Array(100).fill(0).map((_,i)=>i+1);
+Array(100).fill(0).map((_,i)=>i);
 
 // 方法三
 [...Array(100).keys()]
 
 ```
+### 21.数据双向绑定
+``` html
+<input class="inputText" type="text" />
+<p class="text"></p>
+```	
+``` javascript
+var inputText=document.querySelector('.inputText');
+var text=document.querySelector('.text');
+//module
+var obj={_txt:null};
+Object.defineProperty(obj,'txt',{
+	get:function(){
+		return this._txt;
+	},
+	set:function(value){
+		this._txt=value;
+		text.innerHTML=value;
+		inputText.value=value
+	}
+})
+//view
+inputText.addEventListener('input',function(e){
+	const text=e.target.value;
+	obj.txt=text;
+},false)
+```	
+有疑问？=>[defineProperty解析](https://ymbo.github.io/2018/02/28/javascript%E7%9A%84%E6%95%B0%E6%8D%AE%E5%B1%9E%E6%80%A7%E5%92%8C%E8%AE%BF%E9%97%AE%E5%99%A8%E5%B1%9E%E6%80%A7/) 
+
+### 22.Set 和 Map 数据结构
+### 23.怎么判断两个对象相等
+``` javascript
+//方法一
+function isEqual(a,b){
+	for(var key in a){
+		if(typeof a[key] ==='object' && typeof b[key] === 'object'){
+			return is(a[key],b[key]);
+		}
+		if(a[key] !== b[key]){
+			return false;
+		}
+		if(a[key]===b[key]){
+			continue;
+		}
+	}
+	return true;
+}
+
+//方法二
+JSON.stringify(obj1) === JSON.stringify(obj2)
+```
+### 24.let与var区别
+* let声明的变量作用域为所在代码块，不允许重复声明，没有变量提升
+* var声明的变量作用域为所在的函数，允许重复声明，有变量提升
+
+### 25.301与302区别
+301重定向是永久的重定向，搜索引擎在抓取新内容的同时也将旧的网址替换为重定向之后的网址。
+
+302重定向是临时的重定向，搜索引擎会抓取新的内容而保留旧的网址。因为服务器返回302代码，搜索引擎认为新的网址只是暂时的。
+
+### 26.cookie是什么，和session有什么区别
+1. session 在服务器端，cookie 在客户端（浏览器）
+2. session 默认被存在在服务器的一个文件里（不是内存）
+3. session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 session_id）
+4. session 可以放在 文件、数据库、或内存中都可以。
+5. 用户验证这种场合一般会用 session因此，维持一个会话的核心就是客户端的唯一标识，即 session id
