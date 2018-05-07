@@ -11,7 +11,7 @@
 ----------      
 ### 3.引入和引用      
 > href 表示超文本引用（hypertext reference），在 link和a 等元素上使用。src 表示来源地址，在 img、script、iframe 等元素上。
-src 的内容，是页面必不可少的一部分，是引入。href 的内容，是与该页面有关联，是引用。区别就是，引入和引用。       
+src 的内容，是页面必不可少的一部分，是引入。href 的内容，是与该页面有关联，是引用。区别就是，引入和引用。** src用于替换当前元素，href用于在当前文档和引用资源之间确认联系 **       
 *********       
 ### 4.js中==转换规则     
 * number类型与string类型比较，string会转换为number类型     
@@ -437,3 +437,16 @@ JSON.stringify(obj1) === JSON.stringify(obj2)
 3. session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 session_id）
 4. session 可以放在 文件、数据库、或内存中都可以。
 5. 用户验证这种场合一般会用 session因此，维持一个会话的核心就是客户端的唯一标识，即 session id
+
+### 25.BFC
+[BFC](https://zhuanlan.zhihu.com/p/25321647) 
+
+### 26.如何从浏览器URL获取查询字符串参数
+``` javascript
+function search(name){
+	var href=window.location.href;
+	var reg=new RegExp('[?&#]'+name+'=([^&#]*)','g');
+	var result=reg.exec(href);
+	return result?result[1]:result;
+}
+```
