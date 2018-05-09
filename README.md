@@ -11,7 +11,7 @@
 ----------      
 ### 3.引入和引用      
 > href 表示超文本引用（hypertext reference），在 link和a 等元素上使用。src 表示来源地址，在 img、script、iframe 等元素上。
-src 的内容，是页面必不可少的一部分，是引入。href 的内容，是与该页面有关联，是引用。区别就是，引入和引用。** src用于替换当前元素，href用于在当前文档和引用资源之间确认联系 **       
+src 的内容，是页面必不可少的一部分，是引入。href 的内容，是与该页面有关联，是引用。区别就是，引入和引用。`src用于替换当前元素，href用于在当前文档和引用资源之间确认联系`       
 *********       
 ### 4.js中==转换规则     
 * number类型与string类型比较，string会转换为number类型     
@@ -47,6 +47,19 @@ function hump(str){
 	})
 	return str;
 }
+//正则
+function hump(str){
+	return str.replace(/\-[a-z]/g,function(ele){
+		return ele.substr(-1,1).toUpperCase();
+	})
+}
+// match和exec区别
+// 1.match是字符串的方法，exec是正则的方法
+// 2.如果都是全局匹配且没有子表达式的话，match会返回所有的匹配结果，而exec会返回第一个匹配的结果
+var a='asd888asdf';
+var b=a.match(/\asd/g)		//b=['asd','asd'];
+var c=/asd/g.exec(a) 		//c=['asd']
+var d=/as(d)/g.exec(a) 		//d=["asd", "d"]
 ```	
 ### 4. var numberArray = [3,6,2,4,1,5]; 实现倒排，排序。	
 ```javascript
