@@ -327,6 +327,16 @@ function palindrome(params){
 	}
 	return true;
 }
+//方法三
+function palindrome(params){
+	let length=params.length
+	let halflength=(length-1)/2
+	for(let i=0;i<halflength;i++){
+		let a=params[i]
+		if(params.indexOf(a)+params.lastIndexOf(a)!=length-1){return false}
+	}
+	return true
+}
 ```
 
 ### 18.找出数据中重复出现过的元素
