@@ -472,4 +472,7 @@ function search(name){
 	var result=reg.exec(href);
 	return result?result[1]:result;
 }
+//方法2
+// 获取URL的查询参数
+q={};location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);q;
 ```
