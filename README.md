@@ -337,6 +337,22 @@ function palindrome(params){
 	}
 	return true
 }
+//递归
+function palindrome(str) {
+    // 排除干扰项
+    str = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    // 设置边界条件
+    if (str.length < 2) {
+	return true;
+    }
+    // 检测首尾是否相等不相等，如果不等就直接返回 false
+    if (str[0] !== str[str.length - 1]) {
+	return false;
+    }
+
+    // 递归调用
+    return palindrome(str.slice(1, -1));
+}
 ```
 
 ### 18.找出数据中重复出现过的元素
