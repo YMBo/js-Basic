@@ -492,3 +492,34 @@ function search(name){
 // 获取URL的查询参数
 q={};location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);q;
 ```
+### 26.防抖    
+原理：指定时间内多次触发事件，则每次出发事件重新计时    
+例：电梯如果5秒内进人，则重新计时，如果超过5秒则运作    
+应用场景：input搜索实时查询    
+
+``` javascript
+function debounce(fn,delay){
+    return args=>{
+        clearTimeout(fn.id)
+        fn.id=setTimeout(()=>{
+            fn(args)
+        },delay)
+    }
+}
+```
+### 节流    
+原理：指定时间内的多次事件只触发一次    
+例：电梯5秒内进人时间不重置，5秒后制定运行    
+应用场景：上拉加载数据    
+``` javascript
+function throttle(fn,delay){
+    return args=>{
+        if(fn.id){return}
+        fn.id=setTimeout(()=>{
+            fn(args)
+            clearTimeout(fn.id)
+            fn.id=null
+        },delay)
+    }
+}
+```
