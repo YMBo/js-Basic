@@ -509,7 +509,7 @@ function debounce(fn,delay){
 ```
 ### 28.节流    
 原理：指定时间内的多次事件只触发一次    
-例：电梯5秒内进人时间不重置，5秒后制定运行    
+例：电梯5秒内进人时间不重置，5秒后运行    
 应用场景：上拉加载数据    
 ``` javascript
 function throttle(fn,delay){
@@ -522,4 +522,15 @@ function throttle(fn,delay){
         },delay)
     }
 }
+```
+### 29.逗号操作符
+描述：对它的每个操作数求值（从左到右），并返回最后一个操作数的值。
+``` javascript
+var x = 1;
+x = (x++, x);
+console.log(x);
+// expected output: 2
+
+a=1
+while(a++,a<5){code...}
 ```
