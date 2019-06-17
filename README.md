@@ -534,7 +534,7 @@ console.log(x);
 a=1
 while(a++,a<5){code...}
 ```
-### 29、异步任务  
+### 30、异步任务  
 
 ``` javascript 
 new Promise((resolve,reject)=>{
