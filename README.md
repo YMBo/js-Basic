@@ -559,3 +559,72 @@ console.log(4);
 ```    
 3 7 4 1 2 5    
 涉及到的知识点：异步任务中的宏任务、微任务
+### 31、遍历
+tree:
+``` javascript
+tree = {
+    name: "F",
+    children: [{
+        name: 1,
+        children: [{
+            name: "1-1",
+            children: [{
+                name: "1-1-1"
+            }]
+        }]
+    },
+    {
+        name: 2,
+        children: [{
+            name: "2-1",
+            children: [{
+                name: "2-1-1"
+            }]
+        }]
+    }]
+}
+
+```
+#### 1、深度优先遍历
+原理：类似先序遍历
+``` javascript
+function deepe(node,sta=[]){
+	let name=node.name
+	let children=node.children
+	if(name){
+		sta.push(name)
+	}
+	if(children){
+		for(let i=0;i<children.length;i++){
+			deepf(children[i],sta)
+		}
+	}
+	return sta
+}
+deepe(tree)
+// ["F", 1, "1-1", "1-1-1", 2, "2-1", "2-1-1"]
+```
+
+#### 2、广度优先遍历 
+原理：优先广度
+``` javascript
+function breadthe(node){
+	// 广度优先遍历
+	let all=[];
+	let stash=[]
+	stash.push(node)
+	while(stash.length){
+		let n=stash.shift();
+		all.push(n.name)
+		let children=n.children
+		if(children){
+			for(let i=0;i<children.length;i++){
+				stash.push(children[i])
+			}
+		}
+	}
+	return all
+}
+breadthe(tree)
+// ["F", 1, 2, "1-1", "2-1", "1-1-1", "2-1-1"]
+```
