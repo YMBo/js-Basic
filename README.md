@@ -77,7 +77,7 @@ para.appendChild(node);
 //** 插入节点 **
 insertedNode=parentNode.insertBefore(newnode,referenceNode)
 - newNode：将要插入的节点
-- referenceNode：被参照的节点（即要插在该节点之前）
+- referenceNode：被参照的节点（即要插在该节点之前,必须是parentNode的直接子节点）
 - insertedNode：插入后的节点
 - parentNode：父节点
 
