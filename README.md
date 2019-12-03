@@ -75,9 +75,11 @@ var node=document.createTextNode("这是新段落。");
 para.appendChild(node);
 
 //** 插入节点 **
-node.insertBefore(newnode,existingnode)
-//newnode：需要插入的节点对象。
-//existingnode：可选。在其之前插入新节点的子节点。如果未规定，则 insertBefore 方法会在结尾插入 newnode。
+insertedNode=parentNode.insertBefore(newnode,referenceNode)
+- newNode：将要插入的节点
+- referenceNode：被参照的节点（即要插在该节点之前）
+- insertedNode：插入后的节点
+- parentNode：父节点
 
 
 //** 删除**
