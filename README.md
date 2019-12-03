@@ -83,10 +83,10 @@ insertedNode=parentNode.insertBefore(newnode,referenceNode)
 
 
 //** 删除**
-node.removeChild(node)
+parentNode.removeChild(node)
 
 //** 替换 **
-replaceChild(newnode,oldnode);
+parentNode.replaceChild(newnode,oldnode);
 
 //** 复制 **
 var node=document.getElementById("myList2").lastChild.cloneNode(true);
