@@ -630,3 +630,21 @@ function breadthe(node){
 breadthe(tree)
 // ["F", 1, 2, "1-1", "2-1", "1-1-1", "2-1-1"]
 ```
+
+### 32、今年还剩几天
+``` javascript
+	function time(){
+		var start = new Date();
+        var end = new Date(start.getFullYear()+1, 0,25);
+        var cu = Math.floor((end - start) / 1000);
+
+        var seconds = cu % 60 ;
+        var minutes = Math.floor(cu / 60) % 60;
+        var hours = Math.floor(cu / (60 * 60)) % 24;
+        var days = Math.floor(cu / (60 * 60 * 24)) % 30;
+        var months = Math.floor(cu / (60 * 60 * 24 * 30)) % 12;
+        var years = Math.floor(cu / (60 * 60 * 24 * 30 * 12));
+ 	document.getElementById('time').innerText=start.getFullYear() + '年还剩' + years + '年' + months + '月' + days + '日'
+            + hours + '小时' + minutes + '分' + seconds + '秒';
+}
+```
