@@ -418,8 +418,6 @@ Array.from({length:100},(e,i)=>i)
 // 方法五
 [...Array(100)].map((e,i)=>i)
 
-// 方法六
-Array.form(100)
 ```
 ### 21.数据双向绑定
 ``` html
