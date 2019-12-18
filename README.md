@@ -412,6 +412,8 @@ Array(100).fill(0).map((_,i)=>i);
 // 方法三
 [...Array(100).keys()]
 
+// 方法四，又发现一种
+Array.from({length:100},(e,i)=>i)
 ```
 ### 21.数据双向绑定
 ``` html
