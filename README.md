@@ -453,18 +453,14 @@ inputText.addEventListener('input',function(e){
 ``` javascript
 //方法一
 function isEqual(a,b){
-	for(var key in a){
-		if(typeof a[key] ==='object' && typeof b[key] === 'object'){
-			return is(a[key],b[key]);
-		}
-		if(a[key] !== b[key]){
-			return false;
-		}
-		if(a[key]===b[key]){
-			continue;
-		}
-	}
-	return true;
+    for(let i in a){
+        if(typeof a[i] == 'object' && typeof b[i] == 'object'){
+            if(!isEqual(a[i],b[i]))return false
+        }else if(a[i]!=b[i]){
+             return false
+        }
+    }
+    return true
 }
 
 //方法二
