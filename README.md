@@ -55,7 +55,8 @@ function hump(str){
 }
 // match和exec区别
 // 1.match是字符串的方法，exec是正则的方法
-// 2.如果都是全局匹配且没有子表达式的话，match会返回所有的匹配结果，而exec会返回第一个匹配的结果
+// 2.如果都是全局匹配且没有子表达式的话，match会返回所有的匹配结果（即使有字表达式也不会返回），而exec会返回第一个匹配的结果（如果有子表达式，会返回一次匹配） "abbb34eftab0modabbbbb6".match(/a(b)+(\d+)/g)
+// 3.如果不是全局匹配，且有字表达式，match和exec返回结果一样，都是一个完整匹配和一个子表达式匹配
 var a='asd888asdf';
 var b=a.match(/\asd/g)		//b=['asd','asd'];
 var c=/asd/g.exec(a) 		//c=['asd']
