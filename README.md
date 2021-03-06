@@ -61,6 +61,12 @@ var a='asd888asdf';
 var b=a.match(/\asd/g)		//b=['asd','asd'];
 var c=/asd/g.exec(a) 		//c=['asd']
 var d=/as(d)/g.exec(a) 		//d=["asd", "d"]
+    
+总结：    
+1.match如果是全局匹配，则不支持子表达式，如果不是全局匹配则支持子表达式
+2.exec不支持全局匹配，全局和非全局返回结果一样
+3.match 字符串方法，exec正则的方法    
+
 ```	
 ### 4. var numberArray = [3,6,2,4,1,5]; 实现倒排，排序。	
 ```javascript
