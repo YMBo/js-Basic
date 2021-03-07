@@ -137,7 +137,10 @@ document.querySelector("")	//匹配指定 CSS 选择器的第一个元素
 **offsetheight**：=padding+height+border+横向滚动轴高度    
 > ![offsetheight](/img/222.png)    
 
-**offsetLeft**: HTMLElement.offsetLeft 是一个只读属性，返回当前元素左上角相对于  HTMLElement.offsetParent(指的是position的元素，否则就向上查找) 节点的左边界偏移的像素值。
+**offsetLeft**: HTMLElement.offsetLeft 是一个只读属性，返回当前元素左上角相对于  HTMLElement.offsetParent(指的是position的元素，否则就向上查找) 节点的左边界偏移的像素值。    
+offsetParent和parentNode的区别：    
+offsetParent离当前元素最近的含有position的祖先元素    
+parentNode 当前元素的父节点
 
 *********************
 **scrollheight**：可滚动高度    
