@@ -53,6 +53,27 @@ function hump(str){
 		return ele.substr(-1,1).toUpperCase();
 	})
 }
+
+// 上面两种方法有点墨迹    
+function hump(str) {
+  let newStr = '';
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == '_') {
+      let next = str[i + 1];
+      next && (newStr += next.toUpperCase());
+      i += 1;
+    } else {
+      newStr += str[i];
+    }
+  }
+  return newStr;
+}
+
+function hump(str) {
+  return str.replace(/_(\w)/, (_, k) => {
+    return k.toUpperCase();
+  });
+}
 // match和exec区别
 // 1.match是字符串的方法，exec是正则的方法
 // 2.如果都是全局匹配且没有子表达式的话，match会返回所有的匹配结果（即使有字表达式也不会返回），而exec会返回第一个匹配的结果（如果有子表达式，会返回一次匹配） "abbb34eftab0modabbbbb6".match(/a(b)+(\d+)/g)
